@@ -1,26 +1,17 @@
-import json
+test = float(input("Test score: "))
+assignment = float(input("Assignment score: "))
+exam = float(input("Exam score: "))
 
-# 1. Ask + check
-name = input("Enter name: ")
-while name == "":
-    name = input("Name cannot be empty: ")
+total = test + assignment + exam
+average = total / 3
 
-age = input("Enter age: ")
-while not age.isdigit():
-    age = input("Enter a valid age: ")
+print("Total:", total)
+print("Average:", average)
 
-# 2. Store in a box
-profile = {
-    "name": name,
-    "age": int(age)
-}
+if average >= 50:
+    print("You Passed")
+else:
+    print("You Failed")
 
-# 3. Save the box
-with open("profile.json", "w") as file:
-    json.dump(profile, file, indent=4)
-
-# 4. Open and show the box
-with open("profile.json", "r") as file:
-    saved_profile = json.load(file)
-
-print(saved_profile)
+if average >= 80:
+    print("You get an Award")
